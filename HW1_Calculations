@@ -1,0 +1,123 @@
+1. Compute the following three values:
+a = (ASCII code of the first letter of your last name) – (ASCII code of capital letter ‘A’);
+b = (ASCII code of the second letter of your last name) – (ASCII code of letter ‘a’);
+c = (ASCII code of the first letter of your first name) – (ASCII code of capital letter ‘A’)
+
+
+last name - Ayvazyan
+first name - Nare
+
+Finding a:
+ASCII code of the first letter of my last name = ASCII code of capital letter ‘A’ = 65
+ASCII code of capital letter ‘A’ = 65
+a = 65 - 65 = 0
+
+
+Finding b:
+ASCII code of the second letter my your last name = ASCII code of letter ‘y’ = 121
+ASCII code of letter ‘a’ = 97
+b = 121 - 97 = 24
+
+
+Finding c:
+ASCII code of the first letter of my first name = ASCII code of capital letter ‘N’ = 78
+ASCII code of capital letter ‘A’ = 65
+c = 78 - 65 = 13
+
+--------------------------------------------------------------------------------------------
+2. Compute an argument x:
+if (b < 2)
+x = a^2 + (5b)^2 + c^2
+else if (c < 17)
+x = (2a)^2 + b^2 + (3c)^2
+else
+x = a^2 + (2.5b)^2 + c^2
+
+I'll do the calculations by myself, then check by a Java code.
+So the first if's statement doesn't work for me as my b is not < 2, the next condition does work as my c is < 17, so I'll calculate x = (2a)^2 + b^2 + (3c)^2 = 0 + 24^2 + (3*13)^2 = 576 + 1521 = 2097
+
+My Java code will be
+
+
+public class Main {
+    public static void main(String[] args) {
+        int a = 0;
+        int b = 24;
+        int c = 13;
+
+        int x;
+        if (b < 2) {
+            x = a * a + (5 * b) * (5 * b) + c * c;
+        } else if (c < 17) {
+            x = (2 * a) * (2 * a) + b * b + (3 * c) * (3 * c);
+        } else {
+            x = a * a + (int) (2.5 * b) * (int) (2.5 * b) + c * c;
+        }
+
+        System.out.println(x);
+    }
+}
+
+The output is 2097, so I've calculated it correctly. So x = 2097. 
+---------------------------------------------------------------------------------------------
+3. Compute a floating-point index y:
+if (b < 2)
+y = x^ (2/3)
+else if (c < 17)
+y = 0.037x + 8.2
+else
+y = 6.4* (x^0.41)
+
+
+I'll do the calculations by myself, then check by a Java code.
+So the first if's statement doesn't work for me as my b is not < 2, the next condition does work as my c is < 17, so I'll calculate y = 0.037x + 8.2 = 0.037 * 2097 + 8.2 = 85.789
+
+My Java code will be
+
+
+
+public class Main {
+    public static void main(String[] args) {
+        int a = 0;
+        int b = 24;
+        int c = 13;
+
+        int x;
+        if (b < 2) {
+            x = a * a + (5 * b) * (5 * b) + c * c;
+        } else if (c < 17) {
+            x = (2 * a) * (2 * a) + b * b + (3 * c) * (3 * c);
+        } else {
+            x = a * a + (int) (2.5 * b) * (int) (2.5 * b) + c * c;
+        }
+
+        System.out.println(x);
+
+        double y;
+        if (b < 2) {
+            y = Math.pow(x, 0.6);
+        } else if (c < 17) {
+            y = 0.037 * x + 8.2;
+        } else {
+            y = 6.4 * Math.pow(x, 0.41);
+        }
+        System.out.println(y);
+
+    }
+}
+
+
+The output is 87.789, so I've calculated it correctly. y = 87.789
+
+------------------------------------------------------------------------------------------------
+4. Switch to an integer index start by rounding to the nearest integer (y / 8), multiplied by 8 and
+added 1:
+start = (int) (y / 8 + 0.5) * 8 + 1
+
+I'll do the calculations by myself, then check by a Java code.
+(int) (85.789/8 +0.5) *8 + 1 = (int)(11.223625) * 8 + 1 = 11 * 8 + 1 = 88 + 1 = 89 
+
+Java says the same, so start = 89
+
+------------------------------------------------------------------------------------------------
+start + 7 = 96, so my individual dataset is 89-96.
