@@ -1,0 +1,31 @@
+I decided to write the steps I took
+
+
+Task 1: Download from \Home Works subfolder of the course Moodle site the worksheet 
+Hist_HSV.xlsx, and enter in B1 cell of Hue worksheet the computed starting index from Task 0.  
+Create separate grayscale duplicates of each of the indicated on the Hist_Hue worksheet *.jpg 
+files based on the hue, saturation and brightness values normalized from 0 to 255. Use Image  Type 
+ HSB Stack command. Save the produced grayscale image stacks in *.png format using 0 digit in 
+the file name for the hue image, 1 – saturation, and 2 – brightness. Upload the images in respective 
+subfolders \HW1\hue\, \HW1\sat\ and \HW1\val\. 
+
+
+- File -> Import -> Image Sequence 
+- Choose the folder (Nare_nonzip_original) that consists of 112 images (8*14)
+-Filter (-11|-13|-14)
+- Image -> Type -> HSB Stack 
+
+Now I have 2 moving scales. One has three states: hue, saturation, brightness/value. The second one has 72 (8*3*3) states for each of my images.
+
+- File -> Save As -> Image Sequence
+- Choose a folder where I want to keep those HSB images (all_c001_c002_c003)
+
+Here we have red blue and green versions of the hue saturation and brightness
+
+- File -> Import -> Image Sequence 
+
+- Choose the folder where I saved previous 72 images (all_c001_c002_c003)
+- Filter for hue c001, for saturation c002, for brightness c003
+- Image -> Type -> 8-bit
+- File -> Save As -> Image Sequence
+- Choose the folder where I want to save new_hue, new_sat, new_bright images
