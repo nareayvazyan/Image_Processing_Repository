@@ -29,3 +29,15 @@ Here we have red blue and green versions of the hue saturation and brightness
 - Image -> Type -> 8-bit
 - File -> Save As -> Image Sequence
 - Choose the folder where I want to save new_hue, new_sat, new_bright images
+
+
+I'll try to complete Task 2 and Task 3 simultaneosly.
+
+Task 2: Compute the histograms of all grayscale images created in Task 1 and fill in the tables in Hist_Hue, His_Sat and Hist_Val worksheets of the Hist_HSV.xlsx worksheet. You are welcome to use Analyze  Histogram command. The cumulative histograms will be automatically computed in Cum_Hue, Cum_Sat and Cum_Val worksheets respectively. 
+
+Task 3: Using the computed histograms, estimate the minimal and maximal threshold values of hue, saturation and brightness for each image as to optimally extract the facial pixels. Fill in the range B260:Z261 in Hist_Hue, His_Sat and Hist_Val worksheets respectively. You are welcome to use Image  Adjust  Color Threshold command (specify HSB color space). 
+
+For Task 2, I opened each image (1. hue 2. sat 3. bright), then  open histogram and copy the list's count column to my Hist_Hue, Hist_Sat, Hist_Val columns.
+
+For Task 3, steps included in the task didn't work, so
+I opened each image (1. hue 2. sat 3. bright), then open histogram, selected face part using oval, looked at min max values and copied them in B260:Z261. 
