@@ -1,0 +1,43 @@
+import ij.*;
+import ij.process.*;
+import ij.gui.*;
+import java.awt.*;
+import ij.plugin.filter.*;
+
+public class Task_5 implements PlugInFilter {
+    public int setup(String args, ImagePlus im) {
+        // Specify that this plugin works with RGB images and stacks
+        return DOES_RGB + DOES_STACKS;
+    }
+
+
+// 35/90 for -11s, same for -13s, nothing worked good for -14s
+
+
+    public void run(ImageProcessor ip) {
+        int width = ip.getWidth();     // Get the width of the image
+        int height = ip.getHeight();   // Get the height of the image
+        float[] hsv = new float[3];    // Array to hold HSV components
+        int bottom = 35;               // Lower threshold for saturation value 
+        int top = 90;                  // Upper threshold for saturation value
+
+        // Loop through each pixel in the image
+        for (int col = 0; col < width; col++) {
+            for (int row = 0; row < height; row++) {
+                int color = ip.getPixel(col, row);  // Get RGB color of the pixel
+                Color.RGBtoHSB((color & 0xff0000) >> 16, (color & 0x00ff00) >> 8, color & 0x0000ff, hsv);
+                // Convert RGB to HSV and store in hsv array
+
+                // Calculate saturation value (saturation * value)
+                int sv = (int) (hsv[1] * hsv[2] * 255);
+
+                // Apply thresholding based on saturation value
+                // If saturation value is outside the specified range, set pixel to white
+                if (sv < bottom || sv > top) {
+                    ip.putPixel(col, row, 0xffffff);
+                }
+            }
+        }
+    }
+}
+
