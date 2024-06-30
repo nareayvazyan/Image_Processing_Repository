@@ -1,0 +1,43 @@
+import ij.*;
+import ij.process.*;
+import ij.gui.*;
+import java.awt.*;
+import ij.plugin.filter.*;
+
+public class Task_4 implements PlugInFilter {
+
+    public int setup(String args, ImagePlus im) {
+        return DOES_RGB + DOES_STACKS;
+    }
+
+    public void run(ImageProcessor ip) {
+        int width = ip.getWidth();
+        int height = ip.getHeight();
+        float[] hsv = new float[3];
+
+        for (int col = 0; col < width; col++) {
+            for (int row = 0; row < height; row++) {
+                try {
+                    // Get RGB values of the pixel
+                    int[] rgb = ip.getPixel(col, row, null);
+
+                    // Convert RGB to HSV
+                    Color.RGBtoHSB(rgb[0], rgb[1], rgb[2], hsv); 
+
+                    // Calculate grayscale value using saturation and brightness
+                    float saturationBrightnessValue = hsv[1] * hsv[2]; 
+                    int grayValue = (int) (saturationBrightnessValue * 255); 
+
+                    // Set grayscale value for the pixel
+                    ip.putPixel(col, row, new int[]{grayValue, grayValue, grayValue});
+                } catch (ArrayIndexOutOfBoundsException e) {
+                    // Handle out-of-bounds exception
+                    IJ.log("Error: Pixel at (" + col + ", " + row + ") is out of bounds.");
+                } catch (Exception e) {
+                    // Handle other exceptions
+                    IJ.log("Error processing pixel at (" + col + ", " + row + "): " + e.getMessage());
+                }
+            }
+        }
+    }
+}
