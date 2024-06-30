@@ -1,3 +1,5 @@
+// I have used 35/90 for -11s, same for -13s, 10/200 for -14s
+
 import ij.*;
 import ij.process.*;
 import ij.gui.*;
@@ -9,9 +11,6 @@ public class Task_5 implements PlugInFilter {
         // Specify that this plugin works with RGB images and stacks
         return DOES_RGB + DOES_STACKS;
     }
-
-
-// 35/90 for -11s, same for -13s, 10-200 for -14s
 
 
     public void run(ImageProcessor ip) {
