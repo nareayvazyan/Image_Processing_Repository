@@ -11,7 +11,7 @@ public class Task_5 implements PlugInFilter {
     }
 
 
-// 35/90 for -11s, same for -13s, nothing worked good for -14s
+// 35/90 for -11s, same for -13s, 10-200 for -14s
 
 
     public void run(ImageProcessor ip) {
