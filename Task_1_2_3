@@ -20,10 +20,9 @@ Here we have red blue and green versions of the hue saturation and brightness
 - File -> Save As -> Image Sequence
 - Choose the folder where I want to save new_hue, new_sat, new_bright images
 
+-------------------------------------------------------------------------------------------------------
 
 I'll try to complete Task 2 and Task 3 simultaneosly.
-
-
 
 For Task 2, I opened each image (1. hue 2. sat 3. bright), then  open histogram and copy the list's count column to my Hist_Hue, Hist_Sat, Hist_Val columns.
 
