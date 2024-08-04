@@ -1,11 +1,19 @@
-What my macro does..
+I started by loading all the images from a my directory into ImageJ. This step ensured that the entire sequence was ready for processing.
 
-The macro processes the sequence of images specified for me:
+Next, I applied a Gaussian Blur with a sigma value of 3. This helped to smooth out noise and reduce minor variations in the images, which is crucial for enhancing the effectiveness of subsequent filters.
 
-Opens the image sequence from the specified directory.
-Applies Gaussian blur and median filter to reduce noise.
-Uses plugin given to us to apply HSV thresholding.
-Converts the image to binary and inverts it.
-Creates an oval selection and inverts it.
-Clears the inverted selection, effectively keeping the oval region and setting the rest to black.
-Saves the processed images as PNG files in the specified directory.
+Following the Gaussian Blur, I used a Median Filter with a radius of 3. This filter further cleaned the images while preserving important edges, making them more suitable for the subsequent processing steps.
+
+To isolate skin tones and identify potential facial regions, I utilized a custom Java plugin for HSV thresholding. This plugin converted the images from RGB to HSV color space and applied a threshold based on specified criteria.
+
+After thresholding, I converted the processed image into a binary format. In this binary format, the facial region appeared in black while other areas appeared in white, which is essential for distinguishing the face from the background.
+
+Following the conversion to binary, I inverted the binary image. This step switched the colors so that the facial region became white and the background became black.
+
+To precisely select the facial region, I created an oval selection using specific coordinates that encapsulate the face.
+
+After creating the oval selection, I inverted the current selection. This step selected everything outside the oval region, preparing to clear non-facial areas.
+
+To finalize the mask, I set the background color to black and cleared the selected non-facial areas. This ensured that only the facial region remained visible in the final processed image.
+
+Finally, I saved the processed binary masks in PNG format to a designated directory. This step completed the process, resulting in uniform processing across the entire sequence of images, and produced masks that accurately highlighted the facial regions while excluding hair, clothes, and background elements.
