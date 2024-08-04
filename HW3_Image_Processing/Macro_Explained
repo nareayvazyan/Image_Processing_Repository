@@ -1,0 +1,11 @@
+What my macro does..
+
+The macro processes the sequence of images specified for me:
+
+Opens the image sequence from the specified directory.
+Applies Gaussian blur and median filter to reduce noise.
+Uses plugin given to us to apply HSV thresholding.
+Converts the image to binary and inverts it.
+Creates an oval selection and inverts it.
+Clears the inverted selection, effectively keeping the oval region and setting the rest to black.
+Saves the processed images as PNG files in the specified directory.
