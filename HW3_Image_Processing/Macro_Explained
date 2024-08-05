@@ -1,4 +1,4 @@
-I started by loading all the images from a my directory into ImageJ. This step ensured that the entire sequence was ready for processing.
+I started by loading all the images from a my directory into ImageJ. 
 
 Next, I applied a Gaussian Blur with a sigma value of 3. This helped to smooth out noise and reduce minor variations in the images, which is crucial for enhancing the effectiveness of subsequent filters.
 
